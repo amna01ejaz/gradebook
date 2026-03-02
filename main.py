@@ -72,3 +72,13 @@ def main():
         print("Error:", e)
         if __name__ == "__main__":
          main()
+from app import GradebookApp
+from access import AccessController
+
+app = GradebookApp()
+controller = AccessController(app.gradebook, role="admin")
+
+controller.add_student("S1", "Amna")
+controller.add_mark("S1", "Math", 95)
+
+print(controller.view_student("S1"))
